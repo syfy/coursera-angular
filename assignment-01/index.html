@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+	<script src="angular.min.js">	</script>
+
+	<script>
+	var app = angular.module("myApp", []); 
+		
+		app.controller("myCtrl", function($scope) {
+	  $scope.msg = "Message";
+	  $scope.dishes="";
+	  $scope.dishes_length = 0;
+	  $scope.check=function() {
+		$scope.dishes_length =  $scope.dishes.split(",").length;
+		if($scope.dishes_length>3 ){
+			$scope.msg = "Too much!";
+			}
+			if($scope.dishes_length<=3 ){
+			$scope.msg = "Enjoy";
+			}	
+			
+			if($scope.dishes==""){
+			$scope.msg = "Please enter data first";
+			}	
+		};
+	
+	
+	});
+	</script>
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+<body>
+   <div class="container" ng-app="myApp" ng-controller="myCtrl">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <input id="lunch-menu" type="text" ng-model="dishes"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control">
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="check()">Check If Too Much</button>
+         </div>
+         <div class="form-group message" >
+           <!-- Your message can go here. -->
+				
+				{{msg}}
+				
+         </div>
+   </div>
+
+</body>
+</html>

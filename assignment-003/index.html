@@ -17,15 +17,9 @@
         <div class="form-group">
             <input type="text" placeholder="search term" class="form-control" ng-model="narrow.search">
         </div>
-        <div class="form-group narrow-button">
+        <div >
             <button class="btn btn-primary" ng-click="narrow.found();">Narrow It Down For Me!</button>
         </div>
-
-        <!-- <li ng-repeat="items in narrow.list">
-      {{items.description}}
-    </li> -->
-        <!-- found-items should be implemented as a component -->
-        <!-- <button ng-click="narrow.remove($item)">submit</button> -->
         <found-item found-items="narrow.list" on-remove="narrow.remove(index)" title="Choices: ">
             </found-items>
     </div>
